@@ -19,7 +19,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const viteEnv = wrapperEnv(env);
 
   return {
-    base: viteEnv.VITE_PUBLIC_PATH,
+    base: viteEnv.VITE_BASE_URL,
     root,
     resolve: {
       alias: {

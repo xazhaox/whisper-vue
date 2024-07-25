@@ -66,6 +66,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@elegant-router/vue": "^0.3.7",
     "@types/js-md5": "^0.7.2",
     "@types/nprogress": "^0.2.3",
     "@types/qs": "^6.9.15",
