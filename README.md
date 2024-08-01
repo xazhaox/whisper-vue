@@ -29,7 +29,7 @@
 
 ## 需要掌握的基础知识
 
-- 本项目基于 Vue3.3、Vite4、TS、Pinia、Ant-Design-Vue 开发，并全部采用了的单文件组件 `＜script setup＞` 写法。
+- 本项目基于 Vue3.4、Vite5、TS、Pinia、Ant-Design-Vue 开发，并全部采用了的单文件组件 `＜script setup＞` 写法。
 - 建议您在开发前先学习以下内容，提前了解和学习这些知识，会对项目理解非常有帮助：
   - [Vue3 文档](https://cn.vuejs.org/guide/introduction.html)
   - [Vue-Router 文档](https://router.vuejs.org/zh/guide/)
