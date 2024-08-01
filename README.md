@@ -8,7 +8,7 @@
 
 > 💢 Node.js 版本推荐安装 **16+** 以上，版本过低依赖包可能安装失败。
 >
-> ​ 默认使用 pnpm 作为安装依赖包工具，使用 yarn、npm 没有 lock 可能会安装到最新版依赖。
+> 默认使用 pnpm 作为安装依赖包工具，使用 yarn、npm 没有 lock 可能会安装到最新版依赖。
 
 ## 工具配置
 
@@ -27,24 +27,18 @@
 - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented) ==> Sass 样式编写
 - [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) ==> 高亮 .env 文件
 
-### .vscode > extensions.json
+## 需要掌握的基础知识
 
-```json
-{
-  "recommendations": [
-    "vue.volar",
-    "vue.vscode-typescript-vue-plugin",
-    "hollowtree.vue-snippets",
-    "dbaeumer.vscode-eslint",
-    "stylelint.vscode-stylelint",
-    "esbenp.prettier-vscode",
-    "editorconfig.editorconfig",
-    "streetsidesoftware.code-spell-checker",
-    "syler.sass-indented",
-    "mikestead.dotenv"
-  ]
-}
-```
+- 本项目基于 Vue3.3、Vite4、TS、Pinia、Element-Plus 开发，并全部采用了的单文件组件 `＜script setup＞` 写法。
+
+- 建议您在开发前先学习以下内容，提前了解和学习这些知识，会对项目理解非常有帮助：
+  - [Vue3 文档](https://cn.vuejs.org/guide/introduction.html)
+  - [Vue-Router 文档](https://router.vuejs.org/zh/guide/)
+  - [Vite 文档](https://cn.vitejs.dev/guide/)
+  - [TypeScript 文档](https://www.typescriptlang.org/zh/docs/)
+  - [Pinia 文档](https://pinia.web3doc.top/introduction.html)
+  - [Element-Plus 文档](https://element-plus.org/zh-CN/component/button.html)
+  - [ES6 教程](https://es6.ruanyifeng.com/)
 
 > 💢
 >
@@ -91,10 +85,10 @@ pnpm serve
 pnpm build:dev
 
 # 测试环境
-pnpm build:test
+pnpm build:uat
 
 # 生产环境
-pnpm build:pro
+pnpm build:prod
 ```
 
 ### 校验、格式化代码：
@@ -117,15 +111,34 @@ pnpm lint:stylelint
 pnpm commit
 ```
 
+### .vscode > extensions.json
+
+```json
+{
+  "recommendations": [
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "hollowtree.vue-snippets",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "streetsidesoftware.code-spell-checker",
+    "syler.sass-indented",
+    "mikestead.dotenv"
+  ]
+}
+```
+
 ## npm script 详解
 
 ```json
 {
   "scripts": {
     // 本地运行(dev环境)
-    "dev": "vite",
+    "dev": "vite --mode dev",
     // 本地运行(dev环境)
-    "serve": "vite",
+    "serve": "vite --mode dev",
     // 构建打包(dev环境)
     "build:dev": "vue-tsc && vite build --mode dev",
     // 构建打包(test环境)
@@ -175,7 +188,7 @@ pnpm install prettier -D
 
 ### 2、安装 Vscode 插件（Prettier）：
 
-![Prettier](assets/Prettier.png)
+![Prettier](/assets/Prettier.png)
 
 ### 3、配置 Prettier（.prettierrc.cjs）：
 
@@ -242,7 +255,7 @@ pnpm install eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-
 
 ### 2、安装 Vscode 插件（ESLint）：
 
-![ESLint](assets/ESLint.png)
+![ESLint](/assets/ESLint.png)
 
 ### 3、配置 ESLint（.eslintrc.cjs）：
 
@@ -331,7 +344,7 @@ pnpm install stylelint stylelint-config-html stylelint-config-recommended-scss s
 
 ### 2、安装 Vscode 插件（StyleLint）：
 
-![Stylelint](assets/Stylelint.png)
+![Stylelint](/assets/Stylelint.png)
 
 ### 3、在目录的 .vscode 文件夹下新建 settings.json：
 
@@ -402,7 +415,7 @@ module.exports = {
 
 ### 2、安装 VsCode 插件（EditorConfig ）：
 
-![EditorConfig](assets/EditorConfig.png)
+![EditorConfig](/assets/EditorConfig.png)
 
 ### 3、配置 EditorConfig（.editorconfig）：
 
@@ -663,20 +676,76 @@ module.exports = {
         emoji: "🔰"
       }
       // 中文版
-      // { value: "feat", name: "特性:   🚀  新增功能", emoji: "🚀" },
-      // { value: "fix", name: "修复:   🧩  修复缺陷", emoji: "🧩" },
-      // { value: "docs", name: "文档:   📚  文档变更", emoji: "📚" },
-      // { value: "style", name: "格式:   🎨  代码格式（不影响功能，例如空格、分号等格式修正）", emoji: "🎨" },
-      // { value: "refactor", name: "重构:   ♻️  代码重构（不包括 bug 修复、功能新增）", emoji: "♻️" },
-      // { value: "perf", name: "性能:    ⚡️  性能优化", emoji: "⚡️" },
-      // { value: "test", name: "测试:   ✅  添加疏漏测试或已有测试改动", emoji: "✅" },
-      // { value: "build", name: "构建:   📦️  构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）", emoji: "📦️" },
-      // { value: "ci", name: "集成:   🎡  修改 CI 配置、脚本", emoji: "🎡" },
-      // { value: "chore", name: "回退:   ⏪️  回滚 commit", emoji: "⏪️" },
-      // { value: "revert", name: "其他:   🔨  对构建过程或辅助工具和库的更改（不影响源文件、测试用例）", emoji: "🔨" },
-      // { value: "wip", name: "开发:   🕔  正在开发中", emoji: "🕔" },
-      // { value: "workflow", name: "工作流:   📋  工作流程改进", emoji: "📋" },
-      // { value: "types", name: "类型:   🔰  类型定义文件修改", emoji: "🔰" }
+      // {
+      //   value: "feat",
+      //   name: "特性:   🚀  新增功能",
+      //   emoji: "🚀"
+      // },
+      // {
+      //   value: "fix",
+      //   name: "修复:   🧩  修复缺陷",
+      //   emoji: "🧩"
+      // },
+      // {
+      //   value: "docs",
+      //   name: "文档:   📚  文档变更",
+      //   emoji: "📚"
+      // },
+      // {
+      //   value: "style",
+      //   name: "格式:   🎨  代码格式（不影响功能，例如空格、分号等格式修正）",
+      //   emoji: "🎨"
+      // },
+      // {
+      //   value: "refactor",
+      //   name: "重构:   ♻️  代码重构（不包括 bug 修复、功能新增）",
+      //   emoji: "♻️"
+      // },
+      // {
+      //   value: "perf",
+      //   name: "性能:    ⚡️  性能优化",
+      //   emoji: "⚡️"
+      // },
+      // {
+      //   value: "test",
+      //   name: "测试:   ✅  添加疏漏测试或已有测试改动",
+      //   emoji: "✅"
+      // },
+      // {
+      //   value: "build",
+      //   name: "构建:   📦️  构建流程、外部依赖变更（如升级 npm 包、修改 webpack 配置等）",
+      //   emoji: "📦️"
+      // },
+      // {
+      //   value: "ci",
+      //   name: "集成:   🎡  修改 CI 配置、脚本",
+      //   emoji: "🎡"
+      // },
+      // {
+      //   value: "revert",
+      //   name: "回退:   ⏪️  回滚 commit",
+      //   emoji: "⏪️"
+      // },
+      // {
+      //   value: "chore",
+      //   name: "其他:   🔨  对构建过程或辅助工具和库的更改（不影响源文件、测试用例）",
+      //   emoji: "🔨"
+      // },
+      // {
+      //   value: "wip",
+      //   name: "开发:   🕔  正在开发中",
+      //   emoji: "🕔"
+      // },
+      // {
+      //   value: "workflow",
+      //   name: "工作流:   📋  工作流程改进",
+      //   emoji: "📋"
+      // },
+      // {
+      //   value: "types",
+      //   name: "类型:   🔰  类型定义文件修改",
+      //   emoji: "🔰"
+      // }
     ],
     useEmoji: true,
     scopes: [...scopes],
@@ -694,9 +763,9 @@ module.exports = {
 {
   "scripts": {
     // 本地运行(dev环境)
-    "dev": "vite",
+    "dev": "vite --mode dev",
     // 本地运行(dev环境)
-    "serve": "vite",
+    "serve": "vite --mode dev",
     // 构建打包(dev环境)
     "build:dev": "vue-tsc && vite build --mode dev",
     // 构建打包(test环境)
@@ -710,7 +779,7 @@ module.exports = {
     // 执行 eslint 校验
     "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
     // 执行 prettier 格式化
-    "lint:prettier": "prettier --write \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:prettier": "prettier --write \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\" \"*.ts\"",
     // 执行 stylelint 格式化
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     // 执行 lint-staged.config.js 文件下的命令
@@ -725,19 +794,6 @@ module.exports = {
 }
 ```
 
-## 需要掌握的基础知识
-
-- 本项目基于 Vue3.3、Vite4、TS、Pinia、Element-Plus 开发，并全部采用了的单文件组件 `＜script setup＞` 写法。
-
-- 建议您在开发前先学习以下内容，提前了解和学习这些知识，会对项目理解非常有帮助：
-  - [Vue3 文档](https://cn.vuejs.org/guide/introduction.html)
-  - [Vue-Router 文档](https://router.vuejs.org/zh/guide/)
-  - [Vite 文档](https://cn.vitejs.dev/guide/)
-  - [TypeScript 文档](https://www.typescriptlang.org/zh/docs/)
-  - [Pinia 文档](https://pinia.web3doc.top/introduction.html)
-  - [Element-Plus 文档](https://element-plus.org/zh-CN/component/button.html)
-  - [ES6 教程](https://es6.ruanyifeng.com/)
-
 ## 浏览器支持
 
 - 本地开发推荐使用 Chrome 最新版浏览器 [Download](https://www.google.com/intl/zh-CN/chrome/)。
@@ -747,3 +803,12 @@ module.exports = {
   | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" width="24px" height="24px"  />](http://godban.github.io/browsers-support-badges/)IE | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Safari |
   | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
   |                                                                                                                not support                                                                                                                |                                                                                          last 2 versions                                                                                          |                                                                                               last 2 versions                                                                                                |                                                                                             last 2 versions                                                                                              |                                                                                             last 2 versions                                                                                              |
+
+## 在线 Mock 平台
+
+- FastMock：[https://www.fastmock.site](https://www.fastmock.site/)
+- EasyMock：[https://mock.mengxuegu.com](https://mock.mengxuegu.com/)
+
+## 兼容性
+
+danger xxx.? .token 报错 如遇报错问题，请升级最新浏览器，有可能是浏览器不支持最新语法
