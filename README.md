@@ -698,11 +698,11 @@ module.exports = {
     // 本地运行(dev环境)
     "serve": "vite",
     // 构建打包(dev环境)
-    "build:dev": "vue-tsc && vite build --mode development",
+    "build:dev": "vue-tsc && vite build --mode dev",
     // 构建打包(test环境)
-    "build:test": "vue-tsc && vite build --mode test",
+    "build:uat": "vue-tsc && vite build --mode uat",
     // 构建打包(pro环境)
-    "build:pro": "vue-tsc && vite build --mode production",
+    "build:prod": "vue-tsc && vite build --mode prod",
     // 检查项目 ts 类型
     "type:check": "vue-tsc --noEmit --skipLibCheck",
     // 本地环境预览构建后的 dist

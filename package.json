@@ -18,8 +18,8 @@
     "url": "https://github.com/xazhaox/whisper-vue/issues"
   },
   "scripts": {
-    "dev": "vite",
-    "serve": "vite",
+    "dev": "vite --mode dev",
+    "serve": "vite --mode dev",
     "build:dev": "vue-tsc && vite build --mode dev",
     "build:uat": "vue-tsc && vite build --mode uat",
     "build:prod": "vue-tsc && vite build --mode prod",
@@ -49,13 +49,14 @@
     "echarts-liquidfill": "^3.1.0",
     "global": "^4.4.0",
     "html2canvas": "^1.4.1",
-    "js-md5": "^0.8.3",
+    "md5": "^2.3.0",
     "mitt": "^3.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "print-js": "^1.6.0",
     "qs": "^6.12.3",
+    "screenfull": "^6.0.2",
     "sortablejs": "^1.15.2",
     "vue": "^3.4.33",
     "vue-i18n": "^9.13.1",
@@ -67,7 +68,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@elegant-router/vue": "^0.3.7",
-    "@types/js-md5": "^0.7.2",
+    "@types/md5": "^2.3.5",
     "@types/nprogress": "^0.2.3",
     "@types/qs": "^6.9.15",
     "@types/sortablejs": "^1.15.8",
@@ -106,6 +107,7 @@
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-pwa": "^0.20.0",
     "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vue-devtools": "^7.3.7",
     "vue-tsc": "^2.0.24"
   },
   "engines": {

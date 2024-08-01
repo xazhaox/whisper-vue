@@ -13,11 +13,10 @@ declare namespace Menu {
     title: string;
     activeMenu?: string;
     isLink?: string;
-    isOpenNew?: string;
-    hidden: boolean;
+    isHide: boolean;
     isFull: boolean;
     isAffix: boolean;
-    noCache: boolean;
+    isKeepAlive: boolean;
   }
 }
 
@@ -47,10 +46,12 @@ declare interface ViteEnv {
   VITE_PORT: number;
   VITE_OPEN: boolean;
   VITE_REPORT: boolean;
+  VITE_ROUTER_MODE: "hash" | "history";
   VITE_BUILD_COMPRESS: "gzip" | "brotli" | "gzip,brotli" | "none";
   VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean;
   VITE_DROP_CONSOLE: boolean;
   VITE_PWA: boolean;
+  VITE_DEVTOOLS: boolean;
   VITE_BASE_URL: string;
   VITE_API_URL: string;
   VITE_PROXY: [string, string][];

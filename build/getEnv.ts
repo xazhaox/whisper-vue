@@ -1,15 +1,15 @@
 import path from "path";
 
 export function isDevFn(mode: string): boolean {
-  return mode === "development";
+  return mode === "deve";
 }
 
 export function isProdFn(mode: string): boolean {
-  return mode === "production";
+  return mode === "prod";
 }
 
 export function isTestFn(mode: string): boolean {
-  return mode === "test";
+  return mode === "uat";
 }
 
 /**

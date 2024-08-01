@@ -1,25 +1,28 @@
 import { resolve } from "path";
 import { PluginOption } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
-import { visualizer } from "rollup-plugin-visualizer";
 import { createHtmlPlugin } from "vite-plugin-html";
+import { visualizer } from "rollup-plugin-visualizer";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import eslintPlugin from "vite-plugin-eslint";
 import viteCompression from "vite-plugin-compression";
 import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
+import NextDevTools from "vite-plugin-vue-devtools";
 
 /**
  * 创建 vite 插件
  * @param viteEnv
  */
 export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOption[])[] => {
-  const { VITE_GLOB_APP_TITLE, VITE_REPORT, VITE_PWA } = viteEnv;
+  const { VITE_GLOB_APP_TITLE, VITE_REPORT, VITE_DEVTOOLS, VITE_PWA } = viteEnv;
   return [
     vue(),
     // vue 可以使用 jsx/tsx 语法
     vueJsx(),
+    // devTools
+    VITE_DEVTOOLS && NextDevTools({ launchEditor: "code" }),
     // esLint 报错信息显示在浏览器界面上
     eslintPlugin(),
     // name 可以写在 script 标签上
@@ -28,6 +31,7 @@ export const createVitePlugins = (viteEnv: ViteEnv): (PluginOption | PluginOptio
     createCompression(viteEnv),
     // 注入变量到 html 文件
     createHtmlPlugin({
+      minify: true,
       inject: {
         data: { title: VITE_GLOB_APP_TITLE }
       }
@@ -52,7 +56,6 @@ const createCompression = (viteEnv: ViteEnv): PluginOption | PluginOption[] => {
   const { VITE_BUILD_COMPRESS = "none", VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE } = viteEnv;
   const compressList = VITE_BUILD_COMPRESS.split(",");
   const plugins: PluginOption[] = [];
-
   if (compressList.includes("gzip")) {
     plugins.push(
       viteCompression({
