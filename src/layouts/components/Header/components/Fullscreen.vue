@@ -1,6 +1,8 @@
 <template>
   <div class="fullscreen">
-    <i :class="['iconfont', isFullscreen ? 'icon-suoxiao' : 'icon-fangda']" class="toolBar-icon" @click="handleFullScreen"></i>
+    <a-button type="text" @click="handleFullScreen" class="full-screen-svg">
+      <SvgIcon name="FullScreen" style="width: 17px; height: 22px" />
+    </a-button>
   </div>
 </template>
 
@@ -8,6 +10,7 @@
 import { onMounted, ref } from "vue";
 import { message } from "ant-design-vue";
 import screenfull from "screenfull";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const isFullscreen = ref(screenfull.isFullscreen);
 
@@ -23,3 +26,11 @@ const handleFullScreen = () => {
   screenfull.toggle();
 };
 </script>
+
+<style scoped lang="scss">
+.fullscreen {
+  .full-screen-svg {
+    margin-top: 22px;
+  }
+}
+</style>

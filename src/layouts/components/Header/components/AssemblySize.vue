@@ -1,6 +1,10 @@
 <template>
   <a-dropdown trigger="click" @command="setAssemblySize">
-    <i :class="'iconfont icon-contentright'" class="toolBar-icon"></i>
+    <div class="layout-assembly">
+      <a-button type="text" class="layout-svg">
+        <SvgIcon name="layout" style="width: 22px; height: 23px" />
+      </a-button>
+    </div>
     <template #overlay>
       <a-menu>
         <a-menu-item
@@ -20,6 +24,7 @@
 import { computed } from "vue";
 import { useGlobalStore } from "@/stores/modules/global";
 import { AssemblySizeType } from "@/stores/interface";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const globalStore = useGlobalStore();
 const assemblySize = computed(() => globalStore.assemblySize);
@@ -35,3 +40,11 @@ const setAssemblySize = (item: AssemblySizeType) => {
   globalStore.setGlobalState("assemblySize", item);
 };
 </script>
+
+<style lang="scss">
+.layout-assembly {
+  .layout-svg {
+    margin-top: 22px;
+  }
+}
+</style>

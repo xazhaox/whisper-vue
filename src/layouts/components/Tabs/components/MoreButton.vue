@@ -2,7 +2,9 @@
   <div class="custom-ant-dropdown">
     <a-dropdown trigger="click" :teleported="false">
       <div class="more-button">
-        <HolderOutlined />
+        <a-button type="text">
+          <SvgIcon name="HolderOutlined" style="width: 15px; height: 24px" />
+        </a-button>
       </div>
       <template #overlay>
         <a-menu>
@@ -35,7 +37,6 @@ import { useGlobalStore } from "@/stores/modules/global";
 import { useKeepAliveStore } from "@/stores/modules/keepAlive";
 import { useRoute, useRouter } from "vue-router";
 import {
-  HolderOutlined,
   SyncOutlined,
   FullscreenOutlined,
   MinusCircleOutlined,
@@ -44,6 +45,7 @@ import {
   CloseCircleOutlined,
   CloseOutlined
 } from "@ant-design/icons-vue";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const route = useRoute();
 const router = useRouter();

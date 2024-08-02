@@ -1,6 +1,10 @@
 <template>
   <a-dropdown trigger="click" @command="changeLanguage">
-    <i :class="'iconfont icon-zhongyingwen'" class="toolBar-icon"></i>
+    <div class="laanguge-toggle">
+      <a-button type="text" class="language-svg">
+        <SvgIcon name="Language" style="width: 20px; height: 24px" />
+      </a-button>
+    </div>
     <template #overlay>
       <a-menu>
         <a-menu-item v-for="item in languageList" :key="item.value" :command="item.value" :disabled="language === item.value">
@@ -16,6 +20,7 @@ import { useI18n } from "vue-i18n";
 import { computed } from "vue";
 import { useGlobalStore } from "@/stores/modules/global";
 import { LanguageType } from "@/stores/interface";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const i18n = useI18n();
 const globalStore = useGlobalStore();
@@ -31,3 +36,11 @@ const changeLanguage = (lang: string) => {
   globalStore.setGlobalState("language", lang as LanguageType);
 };
 </script>
+
+<style scoped lang="scss">
+.laanguge-toggle {
+  .language-svg {
+    margin-top: 23px;
+  }
+}
+</style>

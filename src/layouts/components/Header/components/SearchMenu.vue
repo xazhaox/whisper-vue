@@ -1,6 +1,8 @@
 <template>
   <div class="search-menu">
-    <i :class="'iconfont icon-sousuo'" class="toolBar-icon" @click="handleOpen"></i>
+    <a-button type="text" @click="handleOpen" class="search-svg">
+      <SvgIcon name="search" style="width: 17px; height: 22px" />
+    </a-button>
     <a-modal class="search-dialog" v-model="isShowSearch" :width="600" :show-close="false" top="10vh">
       <a-input
         v-model="searchMenu"
@@ -39,6 +41,7 @@ import { SearchOutlined } from "@ant-design/icons-vue";
 import { useAuthStore } from "@/stores/modules/auth";
 import { useRouter } from "vue-router";
 import { useDebounceFn } from "@vueuse/core";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -127,6 +130,9 @@ const handleClickMenu = () => {
 
 <style scoped lang="scss">
 .search-menu {
+  .search-svg {
+    margin-top: 22px;
+  }
   :deep(.ant-dialog) {
     border-radius: 4px;
     .ant-dialog__header {

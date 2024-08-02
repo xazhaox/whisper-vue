@@ -2,7 +2,9 @@
   <div class="message">
     <a-popover placement="bottom" :width="310" trigger="click">
       <a-badge :value="5" class="item">
-        <i :class="'iconfont icon-xiaoxi'" class="toolBar-icon"></i>
+        <a-button type="text" class="notification-svg">
+          <SvgIcon name="notification" style="width: 18px; height: 22px" />
+        </a-button>
       </a-badge>
       <template #content>
         <a-tabs v-model="activeName">
@@ -65,10 +67,17 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import SvgIcon from "@/components/SvgIcon/index.vue";
+
 const activeName = ref("first");
 </script>
 
 <style scoped lang="scss">
+.message {
+  .notification-svg {
+    margin-top: 22px;
+  }
+}
 .message-empty {
   display: flex;
   flex-direction: column;

@@ -1,10 +1,12 @@
 <template>
   <!-- 折叠/展开菜单 -->
-  <a-button type="text" @click="changeCollapse"><MenuFoldOutlined /></a-button>
+  <a-button type="text" @click="changeCollapse">
+    <SvgIcon name="MenuFoldOutlined" style="width: 17px; height: 22px" />
+  </a-button>
 </template>
 
 <script setup lang="ts">
-import { MenuFoldOutlined } from "@ant-design/icons-vue";
+import SvgIcon from "@/components/SvgIcon/index.vue";
 import { useGlobalStore } from "@/stores/modules/global";
 import { message } from "ant-design-vue";
 message.success("展开/折叠菜单！");
