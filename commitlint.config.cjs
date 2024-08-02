@@ -73,13 +73,13 @@ module.exports = {
       // },
       // {
       //   value: "fix",
-      //   name: "fix:      🥦  A bug fix",
-      //   emoji: "🥦"
+      //   name: "fix:      🎊  A bug fix",
+      //   emoji: "🎊"
       // },
       // {
       //   value: "docs",
-      //   name: "docs:     🧃  Documentation only changes",
-      //   emoji: "🧃"
+      //   name: "docs:     🥬  Documentation only changes",
+      //   emoji: "🥬"
       // },
       // {
       //   value: "style",
@@ -144,13 +144,13 @@ module.exports = {
       },
       {
         value: "fix",
-        name: "修复:   🥦  修复缺陷",
-        emoji: "🥦"
+        name: "修复:   🎊  修复缺陷",
+        emoji: "🎊"
       },
       {
         value: "docs",
-        name: "文档:   🧃  文档变更",
-        emoji: "🧃"
+        name: "文档:   🥬  文档变更",
+        emoji: "🥬"
       },
       {
         value: "style",
