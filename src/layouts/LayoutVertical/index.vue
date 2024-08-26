@@ -10,17 +10,15 @@
           <span v-show="!isCollapse" class="logo-text">{{ whisperTitle }}</span>
         </div>
         <!-- 菜单 -->
-        <el-scrollbar>
-          <a-menu
-            :router="false"
-            :default-active="activeMenu"
-            :collapse="isCollapse"
-            :unique-opened="accordion"
-            :collapse-transition="false"
-          >
-            <SubMenu :menu-list="menuList" />
-          </a-menu>
-        </el-scrollbar>
+        <a-menu
+          :router="false"
+          :default-active="activeMenu"
+          :collapse="isCollapse"
+          :unique-opened="accordion"
+          :collapse-transition="false"
+        >
+          <SubMenu :menu-list="menuList" />
+        </a-menu>
       </div>
     </a-layout-sider>
     <a-layout>
@@ -57,6 +55,8 @@ const accordion = computed(() => globalStore.accordion);
 const isCollapse = computed(() => globalStore.isCollapse);
 const menuList = computed(() => authStore.showMenuListGet);
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string);
+
+console.log("1.", menuList);
 </script>
 
 <style scoped lang="scss">

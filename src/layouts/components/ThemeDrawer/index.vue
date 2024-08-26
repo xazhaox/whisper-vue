@@ -1,5 +1,5 @@
 <template>
-  <a-drawer v-model="drawerVisible" title="布局设置" size="290px">
+  <a-drawer v-model="drawerVisible" title="布局设置">
     <!-- 布局样式 -->
     <a-divider class="divider" content-position="center">
       <FormOutlined />
@@ -13,9 +13,7 @@
             <div class="layout-light"></div>
             <div class="layout-content"></div>
           </div>
-          <icon v-if="layout == 'vertical'">
-            <CheckCircleOutlined />
-          </icon>
+          <CheckCircleOutlined v-if="layout == 'vertical'" />
         </div>
       </a-tooltip>
       <a-tooltip effect="dark" content="经典" placement="top" :show-after="200">
@@ -25,18 +23,14 @@
             <div class="layout-light"></div>
             <div class="layout-content"></div>
           </div>
-          <icon v-if="layout == 'classic'">
-            <CheckCircleOutlined />
-          </icon>
+          <CheckCircleOutlined v-if="layout == 'classic'" />
         </div>
       </a-tooltip>
       <a-tooltip effect="dark" content="横向" placement="top" :show-after="200">
         <div :class="['layout-item layout-transverse', { 'is-active': layout == 'transverse' }]" @click="setLayout('transverse')">
           <div class="layout-dark"></div>
           <div class="layout-content"></div>
-          <icon v-if="layout == 'transverse'">
-            <CheckCircleOutlined />
-          </icon>
+          <CheckCircleOutlined v-if="layout == 'transverse'" />
         </div>
       </a-tooltip>
       <a-tooltip effect="dark" content="分栏" placement="top" :show-after="200">
@@ -44,9 +38,7 @@
           <div class="layout-dark"></div>
           <div class="layout-light"></div>
           <div class="layout-content"></div>
-          <icon v-if="layout == 'columns'">
-            <CheckCircleOutlined />
-          </icon>
+          <CheckCircleOutlined v-if="layout == 'columns'" />
         </div>
       </a-tooltip>
     </div>
@@ -76,7 +68,7 @@
     </a-divider>
     <div class="theme-item">
       <span>主题颜色</span>
-      <el-color-picker v-model="primary" :predefine="colorList" @change="changePrimary" />
+      <!-- <el-color-picker v-model="primary" :predefine="colorList" @change="changePrimary" /> -->
     </div>
     <div class="theme-item">
       <span>暗黑模式</span>
@@ -92,10 +84,10 @@
     </div>
 
     <!-- 界面设置 -->
-    <el-divider class="divider" content-position="center">
+    <a-divider class="divider" content-position="center">
       <SettingOutlined />
       界面设置
-    </el-divider>
+    </a-divider>
     <div class="theme-item">
       <span>菜单折叠</span>
       <a-switch v-model="isCollapse" />
@@ -137,7 +129,7 @@ import { storeToRefs } from "pinia";
 import { useTheme } from "@/hooks/useTheme";
 import { useGlobalStore } from "@/stores/modules/global";
 import { LayoutType } from "@/stores/interface";
-import { DEFAULT_PRIMARY } from "@/config";
+// import { DEFAULT_PRIMARY } from "@/config";
 import mittBus from "@/utils/mittBus";
 import SwitchDark from "@/components/SwitchDark/index.vue";
 import {
@@ -148,12 +140,12 @@ import {
   SettingOutlined
 } from "@ant-design/icons-vue";
 
-const { changePrimary, changeGreyOrWeak, setAsideTheme, setHeaderTheme } = useTheme();
+const { /*  changePrimary, */ changeGreyOrWeak, setAsideTheme, setHeaderTheme } = useTheme();
 
 const globalStore = useGlobalStore();
 const {
   layout,
-  primary,
+  /* primary, */
   isGrey,
   isWeak,
   asideInverted,
@@ -169,7 +161,7 @@ const {
 } = storeToRefs(globalStore);
 
 // 预定义主题颜色
-const colorList = [
+/* const colorList = [
   DEFAULT_PRIMARY,
   "#daa96e",
   "#0c819f",
@@ -181,7 +173,7 @@ const colorList = [
   "#f39c12",
   "#9b59b6"
 ];
-
+ */
 // 设置布局方式
 const setLayout = (val: LayoutType) => {
   globalStore.setGlobalState("layout", val);

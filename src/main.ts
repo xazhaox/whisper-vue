@@ -36,4 +36,5 @@ const app = createApp(App);
 
 app.config.errorHandler = errorHandler;
 
-app.use(Antd).use(directives).use(router).use(I18n).use(pinia).mount("#app");
+app.use(Antd).use(directives).use(router).use(I18n).use(pinia);
+app.mount("#app");

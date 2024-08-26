@@ -17,5 +17,8 @@
   "i18n-ally.extract.autoDetect": true,
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "expand",
+  "terminal.integrated.cursorBlinking": true
 }

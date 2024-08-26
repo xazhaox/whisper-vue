@@ -21,9 +21,9 @@
           @click="handleClickMenu()"
         >
           <div class="menu-lf">
-            <icon class="menu-icon">
+            <!-- <icon class="menu-icon">
               <component :is="item.meta.icon"></component>
-            </icon>
+            </icon> -->
             <span class="menu-title">{{ item.meta.title }}</span>
           </div>
           <i :class="'iconfont icon-huiche'" class="menu-enter" @click="handleOpen"></i>

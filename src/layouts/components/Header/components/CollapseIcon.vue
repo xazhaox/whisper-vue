@@ -1,18 +1,25 @@
 <template>
   <!-- 折叠/展开菜单 -->
   <a-button type="text" @click="changeCollapse">
-    <SvgIcon name="MenuFoldOutlined" style="width: 17px; height: 22px" />
+    <SvgIcon v-if="state.collapsed" name="SideMenuFoldOutlined" style="width: 17px; height: 22px" />
+    <SvgIcon v-else name="MenuFoldOutlined" style="width: 17px; height: 22px" />
   </a-button>
 </template>
 
 <script setup lang="ts">
 import SvgIcon from "@/components/SvgIcon/index.vue";
 import { useGlobalStore } from "@/stores/modules/global";
-import { message } from "ant-design-vue";
-message.success("展开/折叠菜单！");
+import { reactive } from "vue";
+
+const state = reactive({
+  collapsed: false as boolean
+});
 
 const globalStore = useGlobalStore();
-const changeCollapse = () => globalStore.setGlobalState("isCollapse", !globalStore.isCollapse);
+const changeCollapse = () => {
+  globalStore.setGlobalState("isCollapse", !globalStore.isCollapse);
+  state.collapsed = !state.collapsed;
+};
 </script>
 
 <style scoped lang="scss">

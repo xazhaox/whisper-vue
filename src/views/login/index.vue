@@ -1,17 +1,19 @@
 <template>
   <div class="login-container flx-center">
-    <div class="login-box">
-      <div class="login-left">
-        <img class="login-left-img" src="@/assets/images/login_left.png" alt="login" />
-      </div>
-      <div class="login-form">
-        <div class="login-logo">
-          <img class="login-icon" src="@/assets/images/logo.svg" alt="" />
-          <h2 class="logo-text">whisper-Admin</h2>
-        </div>
-        <LoginForm />
-      </div>
+    <div class="login-form">
+      <LoginForm />
     </div>
+    <!-- <div class="footer footer-center">
+      Copyright MIT © 2024
+      <a
+        href="https://github.com/xazhaox/whisper-vue/blob/master/LICENSE"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-center"
+      >
+        &nbsp;whisper xazhao.
+      </a>
+    </div> -->
   </div>
 </template>
 
