@@ -20,5 +20,8 @@
   },
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "expand",
-  "terminal.integrated.cursorBlinking": true
+  "terminal.integrated.cursorBlinking": true,
+  "workbench.tree.indent": 24,
+  "workbench.tree.renderIndentGuides": "onHover",
+  "workbench.list.openMode": "doubleClick"
 }
